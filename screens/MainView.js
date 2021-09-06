@@ -12,7 +12,9 @@ import {styles} from '../assets/styles'
 import {Avatar} from 'react-native-elements';
 
 const MainView = () => {
+    const name = 'Shreyas Shandilya';
     const [text, onChangeText] = React.useState("Search Bar");
+    const [size, onChangeSize] = React.useState(45);
     const rippleConfig = {
         color : 'yellow',
         radius : 50,
@@ -20,7 +22,12 @@ const MainView = () => {
     };
     const onPressIn = () => {console.log('Press In')};
     const onPressOut = () => {console.log('Press Out')};
-    const onPress = () => {console.log('Press')}
+    const onPress = () => {console.log('Press')};
+    const onLayout = (event) => {
+        const {x, y, height, width} = event.nativeEvent.layout;
+        const _size = height / 3;
+        onChangeSize(_size);
+    };
     return (
         <SafeAreaView style = {styles.mainViewContainer}>
             <View style = {styles.mainViewHeaderContainer}>
@@ -52,10 +59,33 @@ const MainView = () => {
                     />  
                 </Pressable>
             </View>
-            <View style = {styles.mainViewGreetingContainer}>
+            <View 
+                style = {styles.mainViewGreetingContainer}
+                onLayout = {onLayout}
+            >
                 <Text 
                     adjustsFontSizeToFit ={true}
-                    style = {styles.mainViewGreeting}
+                    style = {[{fontSize : size}, styles.mainViewGreeting]}
+                >
+                    Hello,
+                </Text>
+                <Text
+                    adjustsFontSizeToFit ={true}
+                    style = {[{fontSize : size}, styles.mainViewGreeting]} 
+                >
+                    {name}
+                </Text>
+            </View>
+            <View style = {styles.mainViewDailyActivityContainer}>
+                <Text 
+                    adjustsFontSizeToFit ={true}
+                    style = {{fontSize : 30}}
+                >Hello, Shreyas</Text>
+            </View>
+            <View style = {styles.mainViewCategoriesContainer}>
+                <Text 
+                    adjustsFontSizeToFit ={true}
+                    style = {{fontSize : 35}}
                 >Hello, Shreyas</Text>
             </View>
         </SafeAreaView>

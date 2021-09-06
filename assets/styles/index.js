@@ -92,11 +92,27 @@ export const styles = StyleSheet.create({
         backgroundColor : 'magenta',
         margin : 2.5,
         padding : 2.5,
-        alignItems : 'center',
+        alignItems : 'flex-start',
         justifyContent : 'center'
     },
     mainViewGreeting : {
-        fontSize : 30,
-        fontStyle : 'italic'
-    }
+        padding : 2.5,
+        margin : 2.5
+    },
+    mainViewDailyActivityContainer : {
+        flex : 2,
+        backgroundColor : 'magenta',
+        margin : 2.5,
+        padding : 2.5,
+        alignItems : 'center',
+        justifyContent : 'center' 
+    },
+    mainViewCategoriesContainer : {
+        flex : 2,
+        backgroundColor : 'magenta',
+        margin : 2.5,
+        padding : 2.5,
+        alignItems : 'center',
+        justifyContent : 'center'
+    },
 });
